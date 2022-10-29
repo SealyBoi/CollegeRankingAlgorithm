@@ -13,6 +13,7 @@ public class PreSortedStack {
 		sizeOfArray = 1;
 	}
 	
+	//Adds element to dynamic array
 	public void addElement(String[] a) {
 		if (count == sizeOfArray) {
 			growSize();
@@ -21,6 +22,7 @@ public class PreSortedStack {
 		count++;
 	}
 	
+	//Doubles the size of the array
 	public void growSize() {
 		String[][] tmp = new String[sizeOfArray * 2][];
 		for (int i = 0; i < sizeOfArray; i++) {
@@ -34,6 +36,7 @@ public class PreSortedStack {
 		return sizeOfArray;
 	}
 	
+	//Evaluates all of the colleges in the array, then sorts them based on score. Afterwards, it sends them to the LinkedList
 	public void sendToList() {
 		for (int i = 0; i < sizeOfArray - 1; i++) {
 			colleges[i][11] = "" + eval.evaluate(colleges[i]);
@@ -44,6 +47,7 @@ public class PreSortedStack {
 		}
 	}
 	
+	//Quick Sort
 	public void sort(int left, int right) {
 		if (left < right) {
 			int piv = partition(left, right);

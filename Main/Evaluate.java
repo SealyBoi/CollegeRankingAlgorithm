@@ -3,11 +3,17 @@ package Main;
 import Preferences.*;
 
 public class Evaluate {
-	private double score = 0;
+	private double score;
 	private Preferences pref;
 	static enum list {GPA, ACTSAT, TUITION, POPULATION, LOCATION, ACCEPTANCERATE, PUBLICPRIVATE, MAJORS, GRADUATIONRATE, SCHOLARSHIPS};
-	static list factors = list.GPA;
+	static list factors;
 	
+	public Evaluate() {
+		score = 0;
+		factors = list.GPA;
+	}
+	
+	//Evaluates colleges based off of their factors. Turns that number into a percentage and returns it.
 	public double evaluate(String[] uni) {
 		int i = 0;
 		for (list j : list.values()) {
@@ -21,6 +27,7 @@ public class Evaluate {
 		return percent;
 	}
 	
+	//Set current user
 	public void setUser(String[] user, String[] prefs) {
 		int i = 0;
 		for(list j : list.values()) {
@@ -36,10 +43,12 @@ public class Evaluate {
 		}
 	}
 	
+	//Parse the string into an enum
 	public void determinePref(String str) {
 		factors = list.valueOf(str.toUpperCase());
 	}
 	
+	//Searches through the switch case to find what enum factors is set to, and sets pref to the equivalent object
 	public void parse() {
 		switch (factors) {
 		case GPA:

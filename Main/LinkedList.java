@@ -3,6 +3,7 @@ package Main;
 public class LinkedList {
 	Node head;
 	
+	//Creates new Nodes
 	static class Node {
 		String[] data;
 		Node next;
@@ -12,12 +13,14 @@ public class LinkedList {
 		}
 	}
 	
+	//Adds node to front of list
 	public void push(String[] new_data) {
 		Node new_node = new Node(new_data);
 		new_node.next = head;
 		head = new_node;
 	}
 	
+	//Deletes node whose data is equivalent to key from list
 	public void deleteNode(String[] key) {
 		Node temp = head;
 		
